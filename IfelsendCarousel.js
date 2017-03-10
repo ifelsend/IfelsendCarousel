@@ -1,5 +1,12 @@
+/**
+ * JQuery轮播图插件
+ * 根据已有图片,展示对应的页码页签
+ * @author naodai
+ * @link http://ifelsend.com/blog/2017/03/10/%E7%BD%91%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BEjquery%E6%8F%92%E4%BB%B6.html
+ * @github https://github.com/ifelsend/IfelsendCarousel
+ */
 (function($){ 
-    $.fn.bigEye = function(options){ 
+    $.fn.IfelsendCarousel = function(options){ 
         var defaults = {
             numberType: "num", 
             currentClass: "on",
