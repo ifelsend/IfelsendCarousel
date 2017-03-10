@@ -33,3 +33,6 @@ jQuery('#Carousel').IfelsendCarousel({"numberType":"pic"});
 //使用默认值
 jQuery('#Carousel').IfelsendCarousel({});
 ```
+#演示地址
+[ifelsend.com 介绍](http://ifelsend.com/blog/2017/03/10/jquery%E6%8F%92%E4%BB%B6%E7%BD%91%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BEifelsendcarousel.html)
+[ifelsend.com 演示](http://ifelsend.com/demo/IfelsendCarousel/)
