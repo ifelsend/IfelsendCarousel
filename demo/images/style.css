@@ -1,0 +1,15 @@
+.Carousel { width:450px; height:271px; position:relative; border:5px solid #ccc; }
+.Carousel ul { width:450px; height:271px; overflow:hidden; margin:0 auto; }
+.Carousel li { position:absolute; top:0px; left:0px;list-style: none; }
+.Carousel li img { width:450px; height:271px; }
+.Carousel p { position:absolute; bottom:10px; right:5px; }
+.Carousel p a { display:inline-block; width:11px; height:11px; text-align:center;  margin-right:5px; }
+.Carousel p a.on { font-size: 22px;text-decoration:none;}
+
+.Carousel_pic { width:450px; height:271px; position:relative; border:5px solid #ccc; }
+.Carousel_pic ul { width:450px; height:271px; overflow:hidden; margin:0 auto; }
+.Carousel_pic li { position:absolute; top:0px; left:0px;list-style: none; }
+.Carousel_pic li img { width:450px; height:271px; }
+.Carousel_pic p { position:absolute; bottom:10px; right:5px; }
+.Carousel_pic p a { display:inline-block; width:11px; height:11px; text-align:center;  margin-right:5px; background: url(../images/btn.png) no-repeat; }
+.Carousel_pic p a.on { font-size: 22px;text-decoration:none;background: url(../images/btn_on.png) no-repeat;}
