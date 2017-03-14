@@ -29,7 +29,10 @@
             if(0 == i){
                 numString += ' class="' + options.currentClass + '"';
             }
-            numString += ' target="'+$(li[i]).find('a').attr('target')+'">';
+            if($(li[i]).find('a').attr('target') != undefined){
+                numString += ' target="'+$(li[i]).find('a').attr('target')+'"';
+            }
+            numString += '>';
             if("num" == options.numberType){
                 numString += num;
                 num++;
