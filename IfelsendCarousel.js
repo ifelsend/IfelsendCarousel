@@ -29,7 +29,7 @@
             if(0 == i){
                 numString += ' class="' + options.currentClass + '"';
             }
-            numString += ' target="_blank">';
+            numString += ' target="'+$(li[i]).find('a').attr('target')+'">';
             if("num" == options.numberType){
                 numString += num;
                 num++;
