@@ -1,9 +1,9 @@
-#网页轮播图JQuery插件
+# 网页轮播图JQuery插件
 
-#使用场景
+# 使用场景
 针对已有轮播图,进行播放控制,可以设置显示数字类型页码,图片类型页码,切换显示轮播图,暂停轮播
 
-#参数说明
+# 参数说明
 默认参数
 
 ```javascript
@@ -15,7 +15,7 @@ var defaults = {
 }
 ```
 
-#使用方法
+# 使用方法
 ```html
 <div class="Carousel">
     <ul>
@@ -33,6 +33,6 @@ jQuery('#Carousel').IfelsendCarousel({"numberType":"pic"});
 //使用默认值
 jQuery('#Carousel').IfelsendCarousel({});
 ```
-#演示地址
+# 演示地址
 [ifelsend.com 介绍](http://ifelsend.com/blog/2017/03/10/jquery%E6%8F%92%E4%BB%B6%E7%BD%91%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BEifelsendcarousel.html)
 [ifelsend.com 演示](http://ifelsend.com/demo/IfelsendCarousel/)
