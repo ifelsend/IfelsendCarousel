@@ -1,15 +1,117 @@
-.Carousel { width:450px; height:271px; position:relative; border:5px solid #ccc; }
-.Carousel ul { width:450px; height:271px; overflow:hidden; margin:0 auto; }
-.Carousel li { position:absolute; top:0px; left:0px;list-style: none; }
-.Carousel li img { width:450px; height:271px; }
-.Carousel p { position:absolute; bottom:10px; right:5px; }
-.Carousel p a { display:inline-block; width:11px; height:11px; text-align:center;  margin-right:5px; }
-.Carousel p a.on { font-size: 22px;text-decoration:none;}
-
-.Carousel_pic { width:450px; height:271px; position:relative; border:5px solid #ccc; }
-.Carousel_pic ul { width:450px; height:271px; overflow:hidden; margin:0 auto; }
-.Carousel_pic li { position:absolute; top:0px; left:0px;list-style: none; }
-.Carousel_pic li img { width:450px; height:271px; }
-.Carousel_pic p { position:absolute; bottom:10px; right:5px; }
-.Carousel_pic p a { display:inline-block; width:11px; height:11px; text-align:center;  margin-right:5px; background: url(../images/btn.png) no-repeat; }
-.Carousel_pic p a.on { font-size: 22px;text-decoration:none;background: url(../images/btn_on.png) no-repeat;}
+.Carousel {
+    width: 450px;
+    height: 271px;
+    position: relative;
+    border: 5px solid #ccc;
+    overflow: hidden;
+}
+.Carousel ul {
+    width: 450px;
+    height: 271px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    padding: 0;
+}
+.Carousel li {
+    position: relative;
+    /*
+    top: 0px;
+    left: 0px;
+    */
+    list-style: none;
+    width: 450px;
+    float: left;
+}
+.Carousel li img {
+    width: 450px;
+    height: 271px;
+}
+.Carousel p {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(186, 183, 183, 0.54);
+    padding: 0px 10px;
+    margin: 0px;
+    height: 30px;
+}
+.Carousel p a {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    text-align: center;
+    margin-right: 5px;
+}
+.Carousel p a.on {
+    font-size: 22px;
+    text-decoration: none;
+}
+/**/
+.Carousel a.f_prev, .Carousel a.f_next {
+    width: 36px;
+    height: 60px;
+    overflow: hidden;
+    cursor: pointer;
+    line-height: 999px;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    background: url(../images/prev_next.png) no-repeat;
+}
+.Carousel a.f_prev {
+    left: -40px;
+    background-position: 0px 0px;
+    -webkit-transition: left .3s ease-in-out;
+    -moz-transition: left .3s ease-in-out;
+    -o-transition: left .3s ease-in-out;
+    transition: left .3s ease-in-out;
+}
+.Carousel a.f_next {
+    right: -40px;
+    background-position: -41px 0px;
+    -webkit-transition: right .3s ease-in-out;
+    -moz-transition: right .3s ease-in-out;
+    -o-transition: right .3s ease-in-out;
+    transition: right .3s ease-in-out;
+}
+.Carousel_pic {
+    width: 450px;
+    height: 271px;
+    position: relative;
+    border: 5px solid #ccc;
+}
+.Carousel_pic ul {
+    width: 450px;
+    height: 271px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.Carousel_pic li {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    list-style: none;
+}
+.Carousel_pic li img {
+    width: 450px;
+    height: 271px;
+}
+.Carousel_pic p {
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+}
+.Carousel_pic p a {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    text-align: center;
+    margin-right: 5px;
+    background: url(../images/btn.png) no-repeat;
+}
+.Carousel_pic p a.on {
+    font-size: 22px;
+    text-decoration: none;
+    background: url(../images/btn_on.png) no-repeat;
+}
