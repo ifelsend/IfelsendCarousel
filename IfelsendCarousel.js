@@ -181,6 +181,17 @@
                     ul.css('left',leftNum);
                 });
             }
+            else{
+                li.hide();
+                var prevNum = currentNum - 1;
+                if(prevNum < 0){
+                    prevNum = liLength - 1;
+                }
+                $(li[currentNum]).show().addClass(options.playType).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                    $(this).removeClass(options.playType);
+                });
+                
+            }
             
             //新闻标题处理逻辑
             if(options.showTitle == 1){
