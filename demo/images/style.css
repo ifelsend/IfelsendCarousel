@@ -116,3 +116,11 @@
     text-decoration: none;
     background: url(../images/btn_on.png) no-repeat;
 }
+.Carousel span, .Carousel_pic span{
+    margin-top: -20px;
+    color: red;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background: #ccc;
+}

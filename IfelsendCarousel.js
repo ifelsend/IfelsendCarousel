@@ -4,25 +4,43 @@
  * @author naodai
  * @link http://ifelsend.com/blog/2017/03/10/%E7%BD%91%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BEjquery%E6%8F%92%E4%BB%B6.html
  * @github https://github.com/ifelsend/IfelsendCarousel
+ * @version 2.0.1
+ * @Changelog
+ * --- 2.0.1 ---
+ * 增加新闻标题显示
+ *
+ * --- 2.0.0 ---
+ * 增加往左滚动播放效果
+ *
+ * --- 1.0.0 ---
+ * 增加上一页,下一页
+ *
+ * --- 0.0.1 ---
+ * 自动轮播图片
+ * 自动创建页码
+ * 页码支持数字和图片
  */
 (function($){ 
     $.fn.IfelsendCarousel = function(options){ 
         //默认参数
         var defaults = {
-            //页码类型
+            //页码类型,num数字页码,pic图标页码,默认num
             numberType: "num", 
-            //当前页面class
+            //当前页码class
             currentClass: "on",
-            //播放速度
+            //播放速度,单位毫秒,默认3000,3秒
             speed: 3000,
-            //播放类型
-            playType: 1            
+            //播放类型,1淡入淡出,2往左滚动,默认1
+            playType: 1,
+            //是否显示标题,1显示,0不显示.默认1
+            showTitle: 1
         }
         //参数赋值
         var options = $.extend(defaults, options);        
         
         //初始化
-        var currentNum=liLength =imgWidth=leftNum=stopNum= 0,that=ul=li=leftInterval=autoPlayInterval = null;
+        var currentNum=liLength=imgWidth=leftNum=stopNum=0;
+        var that=ul=li=leftInterval=autoPlayInterval = null;
 
         that = this;
         ul = $(that).find('ul');
@@ -30,39 +48,49 @@
         liLength = li.length;
         imgWidth = li.find('img').width();
         
+        //淡入淡出播放效果
         if(options.playType == 1){
             ul.css('width',imgWidth);
             li.css('position','absolute');
             li.css('top',0).css('left',0);
         }
+        //往左滚动播放效果
         else if(options.playType == 2){
             ul.css('width',imgWidth * liLength);
             li.css('position','relative');
             li.css('top',0).css('left',0);
         }
         
-        var numString = '<p>';
+        //页码处理逻辑
+        var pageString = '<p>';
         for(var i=0,num=1;i<liLength;i++){
             var liAHref = $(li[i]).find('a').attr('href');
-            numString += '<a href="' + liAHref + '"';
+            pageString += '<a href="' + liAHref + '"';
             if(0 == i){
-                numString += ' class="' + options.currentClass + '"';
+                pageString += ' class="' + options.currentClass + '"';
             }
             if($(li[i]).find('a').attr('target') != undefined){
-                numString += ' target="'+$(li[i]).find('a').attr('target')+'"';
+                pageString += ' target="'+$(li[i]).find('a').attr('target')+'"';
             }
-            numString += '>';
+            pageString += '>';
             if("num" == options.numberType){
-                numString += num;
+                pageString += num;
                 num++;
             }
-            numString += '</a>';            
+            pageString += '</a>';            
         }
-        numString += '</p>';
-        ul.after(numString);
-
+        pageString += '</p>';
+        ul.after(pageString);
+        
+        //上一页,下一页嵌入
         var prevNextString = '<a class="f_prev">&lt;</a><a class="f_next">&gt;</a>';
         $(that).find('p').after(prevNextString);
+        
+        //新闻标题嵌入
+        if(options.showTitle == 1){
+            var titleString = '<span><a href="#" target="" title=""></a></span>';
+            $(that).find('p').after(titleString);
+        }
         
         //鼠标附上图片事件
         $(that).mouseover(function(){
@@ -152,6 +180,22 @@
                     }
                     ul.css('left',leftNum);
                 });
+            }
+            
+            //新闻标题处理逻辑
+            if(options.showTitle == 1){
+                var titleA = $(that).find('span').find('a');
+                var currentLiA = $(li[currentNum]).find('a');
+                titleA.attr('href',currentLiA.attr('href'));
+                //titleA.attr('target',currentLiA.attr('target'));
+                titleA.attr('title',currentLiA.attr('title'));
+                titleA.html(currentLiA.attr('title'));
+                if(currentLiA.attr('target') != undefined){
+                    titleA.attr('target',currentLiA.attr('target'));
+                }
+                else{
+                    titleA.removeAttr('target'); 
+                }
             }
             
             //页码
