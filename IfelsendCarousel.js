@@ -4,8 +4,16 @@
  * @author naodai
  * @link http://ifelsend.com/blog/2017/03/10/%E7%BD%91%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BEjquery%E6%8F%92%E4%BB%B6.html
  * @github https://github.com/ifelsend/IfelsendCarousel
- * @version 2.0.1
+ * @version 2.1.1
+ *
  * @Changelog
+ * --- 2.1.1 ---
+ * 调整参数名称,更加明确
+ *
+ * --- 2.1.0 ---
+ * 支持 animate.css 播放效果
+ * animate.css -http://daneden.me/animate
+ *
  * --- 2.0.1 ---
  * 增加新闻标题显示
  *
@@ -25,13 +33,13 @@
         //默认参数
         var defaults = {
             //页码类型,num数字页码,pic图标页码,默认num
-            numberType: "num", 
+            pageType: "num", 
             //当前页码class
-            currentClass: "on",
+            currentPageClass: "on",
+            //播放类型, hideShow 淡入淡出,leftScroll 往左滚动,支持animate.css[例如 animated wobble ]默认 hideShow
+            playType: "hideShow",
             //播放速度,单位毫秒,默认3000,3秒
             speed: 3000,
-            //播放类型,1淡入淡出,2往左滚动,默认1
-            playType: 1,
             //是否显示标题,1显示,0不显示.默认1
             showTitle: 1
         }
@@ -49,13 +57,13 @@
         imgWidth = li.find('img').width();
         
         //淡入淡出播放效果
-        if(options.playType == 1){
+        if(options.playType == "hideShow"){
             ul.css('width',imgWidth);
             li.css('position','absolute');
             li.css('top',0).css('left',0);
         }
         //往左滚动播放效果
-        else if(options.playType == 2){
+        else if(options.playType == "leftScroll"){
             ul.css('width',imgWidth * liLength);
             li.css('position','relative');
             li.css('top',0).css('left',0);
@@ -67,13 +75,13 @@
             var liAHref = $(li[i]).find('a').attr('href');
             pageString += '<a href="' + liAHref + '"';
             if(0 == i){
-                pageString += ' class="' + options.currentClass + '"';
+                pageString += ' class="' + options.currentPageClass + '"';
             }
             if($(li[i]).find('a').attr('target') != undefined){
                 pageString += ' target="'+$(li[i]).find('a').attr('target')+'"';
             }
             pageString += '>';
-            if("num" == options.numberType){
+            if("num" == options.pageType){
                 pageString += num;
                 num++;
             }
@@ -157,11 +165,11 @@
         //播放
         var play = function(){
             //播放类型
-            if(options.playType == 1){
+            if(options.playType == "hideShow"){
                 li.hide();
                 $(li[currentNum]).show();
             }
-            else if(options.playType == 2){
+            else if(options.playType == "leftScroll"){
                 //防止上一个没有播放完,多个叠加
                 window.clearInterval(leftInterval);
                 var prevNum = currentNum - 1;
@@ -210,8 +218,8 @@
             }
             
             //页码
-            numA.removeClass(options.currentClass);
-            $(numA[currentNum]).addClass(options.currentClass);
+            numA.removeClass(options.currentPageClass);
+            $(numA[currentNum]).addClass(options.currentPageClass);
         };
         
         //自动播放

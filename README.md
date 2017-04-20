@@ -8,10 +8,16 @@
 
 ```javascript
 var defaults = {
-    numberType: "num", //页码展示方式,num为数字,pic为图片,需要样式支持
-    currentClass: "on", //当前页码样式名
-    speed: 3000, //播放速度,单位毫秒
-    playType: 1 //播放方式.目前未实现.目前播放是直接隐藏显示,以后会扩展支持多种播放方式供选择
+    //页码类型,num数字页码,pic图标页码,默认num
+    pageType: "num", 
+    //当前页码class
+    currentPageClass: "on",
+    //播放类型, hideShow 淡入淡出,leftScroll 往左滚动,支持animate.css[例如 animated wobble ]默认 hideShow
+    playType: "hideShow",
+    //播放速度,单位毫秒,默认3000,3秒
+    speed: 3000,
+    //是否显示标题,1显示,0不显示.默认1
+    showTitle: 1
 }
 ```
 
@@ -27,12 +33,13 @@ var defaults = {
 ```
 ```javascript
 //展示数字类型页码
-jQuery('#Carousel').IfelsendCarousel({"numberType":"num"});
+jQuery('#Carousel').IfelsendCarousel({"pageType":"num"});
 //展示图片类型页码
-jQuery('#Carousel').IfelsendCarousel({"numberType":"pic"});
+jQuery('#Carousel').IfelsendCarousel({"pageType":"pic"});
 //使用默认值
 jQuery('#Carousel').IfelsendCarousel({});
 ```
 # 演示地址
 [ifelsend.com 介绍](http://ifelsend.com/blog/2017/03/10/jquery%E6%8F%92%E4%BB%B6%E7%BD%91%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BEifelsendcarousel.html)
+
 [ifelsend.com 演示](http://ifelsend.com/demo/IfelsendCarousel/)

@@ -16,8 +16,11 @@
         <h1>JQuery插件网页轮播图IfelsendCarousel 演示</h1>
         <p><a href="http://ifelsend.com/blog/2017/03/10/jquery%E6%8F%92%E4%BB%B6%E7%BD%91%E9%A1%B5%E8%BD%AE%E6%92%AD%E5%9B%BEifelsendcarousel.html">返回Ifelsend.com查看详细说明</a></p>
         <pre>
-//使用默认值
-jQuery('.Carousel_pic').IfelsendCarousel({'playType':2,'numberType':'pic'});
+//使用animate.css  图片页码
+jQuery('.Carousel_pic').IfelsendCarousel({
+    'playType':'animated wobble',
+    'pageType':'pic'
+});
         </pre>
         <div class="Carousel_pic">
             <ul>
@@ -45,8 +48,7 @@ jQuery('.Carousel_pic').IfelsendCarousel({'playType':2,'numberType':'pic'});
         <script src="./images/jquery.js?ver=1.12.4" type="text/javascript"></script>
         <script src="../IfelsendCarousel.js" type="text/javascript"></script>
         <script type="text/javascript">
-jQuery('.Carousel_pic').IfelsendCarousel({'playType':'animated wobble','numberType':'pic'});
-//jQuery('.ant').addClass('animated bounceOutLeft');
+jQuery('.Carousel_pic').IfelsendCarousel({'playType':'animated wobble','pageType':'pic'});
         </script>
         
         <div class="sitecode">
