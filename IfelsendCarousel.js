@@ -59,6 +59,7 @@
         //淡入淡出播放效果
         if(options.playType == "hideShow"){
             ul.css('width',imgWidth);
+            li.css('display','none');
             li.css('position','absolute');
             li.css('top',0).css('left',0);
         }
@@ -224,6 +225,11 @@
         
         //自动播放
         var autoplay = function(){
+            //不能使用自动播放来直接开始，页面会长时间停留在第一个图片
+            //先直接调用play来播放第一个图片，然后增加页码，开始用定时任务自动播放
+            play();
+            currentNum = 1;
+
             //防止快速播放后,播放速度很快的问题
             window.clearInterval(autoPlayInterval);
             autoPlayInterval = window.setInterval(function(){ 
